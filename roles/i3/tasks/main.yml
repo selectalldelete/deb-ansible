@@ -1,14 +1,14 @@
 ---
 - name: Install i3 config
-  copy:
-    src: /home/{{ deb_username }}/dotfiles/.config/i3/config
+  template:
+    src: i3_config
     dest: /home/{{ deb_username }}/.config/i3/config
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
 
 - name: Install i3blocks config
   copy:
-    src: /home/{{ deb_username }}/dotfiles/.config/i3/i3blocks.conf
+    src: i3blocks.conf
     dest: /home/{{ deb_username }}/.config/i3/i3blocks.conf
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
