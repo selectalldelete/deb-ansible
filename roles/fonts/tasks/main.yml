@@ -18,7 +18,7 @@
     dest: /home/{{ deb_username }}/SSF/
 
 - name: Unzip Input
-  undebive:
+  unarchive:
     src: Input-Font.zip
     dest: /home/{{ deb_username }}/Input-Font/
 
