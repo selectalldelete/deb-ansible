@@ -13,7 +13,7 @@
     mode: 0755
 
 - name: Unzip System San Francisco
-  undebive:
+  unarchive:
     src: /home/{{ deb_username }}/SSF.zip
     dest: /home/{{ deb_username }}/SSF/
 
