@@ -1,0 +1,6 @@
+---
+- name: Create user/group
+  user:
+    name: "{{ deb_username }}"
+    createhome: yes
+    group: "{{ deb_username }}"

@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - user
+    - apt
+    - packages
+    - git
+    - i3
+    - python
+    - fonts
+  become: yes
+  vars_prompt:
+    - name: "deb_username"
+      prompt: "Enter system username"
+      private: no
+    - name: "deb_realname"
+      prompt: "Enter your full name"
+      private: no
+    - name: "deb_email"
+      prompt: "Enter your email address"
+      private: no

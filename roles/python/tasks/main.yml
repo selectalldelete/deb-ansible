@@ -1,0 +1,9 @@
+---
+- name: Install pip modules
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - pip
+    - virtualenv
+    - awscli

@@ -1,0 +1,46 @@
+---
+- name: Configure git username
+  git_config:
+    name: user.name
+    value: "{{ deb_realname }}"
+    scope: global
+  become: yes
+  become_user: "{{ deb_username }}"
+
+- name: Configure git email
+  git_config:
+    name: user.email
+    value: "{{ deb_email }}"
+    scope: global
+  become: yes
+  become_user: "{{ deb_username }}"
+
+- name: Create global .gitignore file
+  file:
+    path: /home/{{ deb_username }}/.gitignore
+    state: touch
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"
+  become: yes
+  become_user: "{{ deb_username }}"
+
+- name: Configure global .gitignore location
+  git_config:
+    name: core.excludesfile
+    value: "~/.gitignore"
+    scope: global
+  become: yes
+  become_user: "{{ deb_username }}"
+
+- name: Create dotfiles directory
+  file:
+    path: /home/{{ deb_username }}/dotfiles
+    state: directory
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"
+
+- name: Sync dotfiles repo
+  git:
+    repo: https://github.com/selectalldelete/dotfiles
+    dest: /home/{{ deb_username }}/dotfiles
+    clone: yes

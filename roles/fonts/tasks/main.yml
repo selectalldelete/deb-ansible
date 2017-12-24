@@ -1,0 +1,39 @@
+---
+- name: Download System San Francisco font
+  get_url:
+    url: https://github.com/supermarin/YosemiteSanFranciscoFont/debive/master.zip
+    dest: /home/{{ deb_username }}/SSF.zip
+
+- name: Create fonts directory
+  file:
+    path: /home/{{ deb_username }}/.fonts
+    state: directory
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"
+    mode: 0755
+
+- name: Unzip System San Francisco
+  undebive:
+    src: /home/{{ deb_username }}/SSF.zip
+    dest: /home/{{ deb_username }}/SSF/
+
+- name: Unzip Input
+  undebive:
+    src: Input-Font.zip
+    dest: /home/{{ deb_username }}/Input-Font/
+
+- name: Install System San Francisco
+  copy:
+    src: /home/{{ deb_username }}/SSF/*.ttf
+    dest: /home/{{ deb_username }}/.fonts/
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"
+    mode: 0755
+
+- name: Install Input
+  copy:
+    src: /home/{{ deb_username }}/Input-Font/InputMono/InputMonoNarrow/*.ttf
+    dest: /home/{{ deb_username }}/.fonts/
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"
+    mode: 0755
