@@ -27,8 +27,8 @@ libxkbcommon-dev libxkbcommon-x11-dev autoconf
 # install i3-gaps from source
  
 # clone the repository
-git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps
+git clone https://www.github.com/Airblader/i3 /opt/i3-gaps
+cd /opt/i3-gaps
 # compile & install
 autoreconf --force --install
 rm -rf build/
@@ -38,8 +38,3 @@ mkdir -p build && cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 make install
- 
-# install misc. i3 packages
-apt-get install -q -y   -o Dpkg::Options::="--force-confdef" \
-                        -o Dpkg::Options::="--force-confold" \
-i3lock i3status dmenu dunst
