@@ -1,15 +1,19 @@
 ---
 - name: Create fonts directory
   file:
-    path: /home/{{ deb_username }}/.fonts
+    path: /home/{{ deb_username }}/{{ item }}
     state: directory
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
     mode: 0755
+  with_items:
+    - .fonts
+    - SSF
+    - Input-Font
 
 - name: Unzip System San Francisco
   unarchive:
-    src: /home/{{ deb_username }}/deb-ansible/roles/fonts/files/YosimiteSanFranciscoFont-master.zip
+    src: /home/{{ deb_username }}/deb-ansible/roles/fonts/files/YosemiteSanFranciscoFont-master.zip
     dest: /home/{{ deb_username }}/SSF/
 
 - name: Unzip Input
