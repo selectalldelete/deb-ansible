@@ -1,9 +1,4 @@
 ---
-- name: Download System San Francisco font
-  get_url:
-    url: https://github.com/supermarin/YosemiteSanFranciscoFont/debive/master.zip
-    dest: /home/{{ deb_username }}/SSF.zip
-
 - name: Create fonts directory
   file:
     path: /home/{{ deb_username }}/.fonts
@@ -14,7 +9,7 @@
 
 - name: Unzip System San Francisco
   unarchive:
-    src: /home/{{ deb_username }}/SSF.zip
+    src: /home/{{ deb_username }}/deb-ansible/roles/fonts/files/YosimiteSanFranciscoFont-master.zip
     dest: /home/{{ deb_username }}/SSF/
 
 - name: Unzip Input
