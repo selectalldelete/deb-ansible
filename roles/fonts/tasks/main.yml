@@ -8,22 +8,19 @@
     mode: 0755
   with_items:
     - .fonts
-    - SSF
-    - Input-Font
+    - tmp
 
 - name: Unzip System San Francisco
   unarchive:
-    src: /home/{{ deb_username }}/deb-ansible/roles/fonts/files/YosemiteSanFranciscoFont-master.zip
-    dest: /home/{{ deb_username }}/SSF/
-
-- name: Unzip Input
-  unarchive:
-    src: Input-Font.zip
-    dest: /home/{{ deb_username }}/Input-Font/
+    src: "{{ item }}"
+    dest: /home/{{ deb_username }}/tmp/
+  with_items:
+    - YosemiteSanFranciscoFont-master.zip
+    - Input-Font.zip
 
 - name: Install System San Francisco
   copy:
-    src: /home/{{ deb_username }}/SSF/*.ttf
+    src: /home/{{ deb_username }}/tmp/YosemiteSanFranciscoFont-master/*.ttf
     dest: /home/{{ deb_username }}/.fonts/
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
@@ -31,7 +28,7 @@
 
 - name: Install Input
   copy:
-    src: /home/{{ deb_username }}/Input-Font/InputMono/InputMonoNarrow/*.ttf
+    src: /home/{{ deb_username }}/tmp/Input_Fonts/InputMono/InputMonoNarrow/*.ttf
     dest: /home/{{ deb_username }}/.fonts/
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
