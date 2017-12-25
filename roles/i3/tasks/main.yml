@@ -25,7 +25,7 @@
 
 - name: Copy .Xresources and wallpaper into place
   copy:
-    src: "{{ item ]}"
+    src: "{{ item }}"
     dest: /home/{{ deb_username }}/
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
