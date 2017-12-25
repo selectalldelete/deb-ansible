@@ -10,7 +10,7 @@
     - .fonts
     - tmp
 
-- name: Unzip System San Francisco
+- name: Unzip fonts
   unarchive:
     src: "{{ item }}"
     dest: /home/{{ deb_username }}/tmp/
@@ -18,18 +18,13 @@
     - YosemiteSanFranciscoFont-master.zip
     - Input-Font.zip
 
-- name: Install System San Francisco
+- name: Install fonts
   copy:
-    src: /home/{{ deb_username }}/tmp/YosemiteSanFranciscoFont-master/*.ttf
+    src: "{{ item }}"
     dest: /home/{{ deb_username }}/.fonts/
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
     mode: 0755
-
-- name: Install Input
-  copy:
-    src: /home/{{ deb_username }}/tmp/Input_Fonts/InputMono/InputMonoNarrow/*.ttf
-    dest: /home/{{ deb_username }}/.fonts/
-    owner: "{{ deb_username }}"
-    group: "{{ deb_username }}"
-    mode: 0755
+  with_fileglob:
+    - /home/{{ deb_username }}/tmp/YosemiteSanFranciscoFont-master/*.ttf
+    - /home/{{ deb_username }}/tmp/Input_Fonts/InputMono/InputMonoNarrow/*.ttf
