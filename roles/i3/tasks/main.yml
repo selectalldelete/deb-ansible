@@ -23,3 +23,9 @@
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
 
+- name: Copy wallpaper into place
+  copy:
+    src: wallpaper.jpg
+    dest: /home/{{ deb_username }}/
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"

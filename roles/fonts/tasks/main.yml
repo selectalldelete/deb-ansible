@@ -17,6 +17,7 @@
   with_items:
     - YosemiteSanFranciscoFont-master.zip
     - Input-Font.zip
+    - font-awesome.zip
 
 - name: Install fonts
   copy:
@@ -28,3 +29,4 @@
   with_fileglob:
     - /home/{{ deb_username }}/tmp/YosemiteSanFranciscoFont-master/*.ttf
     - /home/{{ deb_username }}/tmp/Input_Fonts/InputMono/InputMonoNarrow/*.ttf
+    - /home/{{ deb_username }}/tmp/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf
