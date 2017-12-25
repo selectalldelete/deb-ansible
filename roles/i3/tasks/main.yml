@@ -1,4 +1,14 @@
 ---
+- name: Create config directory
+  file:
+    path: /home/{{ deb_username }}/{{ item }}
+    state: directory
+    owner: "{{ deb_username }}"
+    group: "{{ deb_username }}"
+  with_items:
+    - .config
+    - .config/i3
+
 - name: Install i3 config
   template:
     src: i3_config
