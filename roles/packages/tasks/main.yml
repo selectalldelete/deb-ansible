@@ -9,6 +9,8 @@
     - compton
     - rofi
     - lxappearance
+    - i3
+    - i3lock
     - i3blocks
     - git
     - golang
