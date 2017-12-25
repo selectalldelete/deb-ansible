@@ -23,9 +23,12 @@
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
 
-- name: Copy wallpaper into place
+- name: Copy .Xresources and wallpaper into place
   copy:
-    src: wallpaper.jpg
+    src: "{{ item ]}"
     dest: /home/{{ deb_username }}/
     owner: "{{ deb_username }}"
     group: "{{ deb_username }}"
+  with_items:
+    - wallpaper.jpg
+    - .Xresources
