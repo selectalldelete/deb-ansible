@@ -11,9 +11,9 @@
     - lxappearance
     - i3blocks
     - git
-    - go
-    - python
-    - python-pip
+    - golang
+    - python3
+    - python3-pip
     - python-dev
     - libmysqlclient
 
