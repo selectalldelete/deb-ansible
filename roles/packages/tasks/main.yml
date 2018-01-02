@@ -17,7 +17,10 @@
     - python3
     - python-pip
     - python-dev
-    - default-libmysqlclient-dev
+    - libmysqlclient-dev
+    - xbacklight
+    - acpi
+    - libanyevent-i3-perl
 
 - name: Install i3-gaps
   command: /home/{{ deb_username }}/deb-ansible/roles/packages/files/i3gaps-install.sh
